@@ -3,6 +3,24 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+
+Setting up firebase:<br>
+```bash
+npm install firebase
+```
+Go to .env.local file, if it is not located then create a new .env.local file in your project root:<br>
+
+Add your respective credentials in .env.local file from Firebase website after enabling Google and Email/Password Authentication in the Authentication part.
+
+NEXT_PUBLIC_FIREBASE_API_KEY="Add_YOUR_FIREBASE_API_KEY"<br>
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="ADD_YOUR_FIREBASE_AUTH_DOMAIN"<br>
+NEXT_PUBLIC_FIREBASE_PROJECT_ID="Add_YOUR_FIREBASE_PROJECT_ID"<br>
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="ADD_YOUR_FIREBASE_STORAGE_BUCKET"<br>
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="ADD_YOUR_FIREBASE_MESSAGING_SENDER_ID"<br>
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="ADD_YOUR_FIREBASE_MESSAGING_SENDER_ID"<br>
+NEXT_PUBLIC_FIREBASE_APP_ID="ADD_YOUR_FIREBASE_APP_ID"
+
+
 First, run the development server:
 
 ```bash
