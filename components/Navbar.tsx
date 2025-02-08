@@ -5,7 +5,11 @@ import { Search, Heart, ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
+
+
+
 export default function Navbar() {
+
   return (
     <nav className="bg-black px-4 py-3">
       <div className="container mx-auto flex items-center justify-between">
@@ -44,8 +48,11 @@ export default function Navbar() {
           </Button>
 
           {/* Sign In Button */}
-          <Button variant="ghost" className="text-white hover:bg-gray-800">
-            Sign In
+          <Button  variant="ghost" className="text-white hover:bg-gray-800">
+          <Link href="/signin" className="text-white text-xl font-bold">
+          
+          Sign In
+        </Link>
           </Button>
         </div>
       </div>
