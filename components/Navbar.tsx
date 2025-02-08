@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input"
 export default function Navbar() {
 
   return (
-    <nav className="bg-black px-4 py-3">
+    <nav className="bg-black px-4 py-4">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-white text-xl font-bold">
@@ -59,4 +59,6 @@ export default function Navbar() {
     </nav>
   )
 }
+
+
 
