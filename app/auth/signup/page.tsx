@@ -26,7 +26,7 @@ const Signup = () => {
           <input
             type="email"
             placeholder="Email"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 border text-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -35,21 +35,21 @@ const Signup = () => {
           <input
             type="number"
             placeholder="Aadhar Number"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 border text-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
 
           <input
             type="number"
             placeholder="PAN Number"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 border text-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
 
           <input
             type="password"
             placeholder="Password"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 border text-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required

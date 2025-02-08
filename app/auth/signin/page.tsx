@@ -1,54 +1,82 @@
+// app/auth/signin/page.tsx
 "use client";
-import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 import Link from "next/link";
+import Image from "next/image";
 
 const Signin = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("Login successful");
-  };
+  const { signInWithGoogle } = useAuth();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4">
-      <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Sign In</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+        <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">Sign In</h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        <form className="space-y-4 mb-6">
+          <div>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full px-4 py-3 text-gray-600 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
 
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full px-4 py-3 text-gray-600 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300"
+            className="w-full py-3 px-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-200"
           >
             Sign In
           </button>
-        </form><br/>
-         <p><Link href="#" className="text-blue-500 hover:underline">Forget Your Password</Link></p>
-        <p className="text-center text-gray-600 mt-4">
-          Don't have an account?{" "}
-          <Link href="/auth/signup" className="text-blue-500 hover:underline">
-            Sign Up
+        </form>
+
+        <div className="relative flex items-center justify-center mb-6">
+          <div className="flex-grow border-t border-gray-300"></div>
+          <div className="flex-shrink mx-4 text-gray-500">Or</div>
+          <div className="flex-grow border-t border-gray-300"></div>
+        </div>
+        <div className="text-center text-gray-500 mb-4">continue with</div>
+
+        <button
+          onClick={signInWithGoogle}
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition duration-200"
+        >
+          <Image 
+            src="/google.svg" 
+            alt="Google" 
+            width={20} 
+            height={20}
+            className="w-5 h-5"
+          />
+          <span className="text-gray-700">Sign in with Google</span>
+        </button>
+
+        <div className="mt-6 text-center">
+          <Link 
+            href="#" 
+            className="text-blue-500 hover:underline"
+          >
+            Forgot your password?
           </Link>
-        </p>
+          <p className="mt-4 text-gray-600">
+            Don't have an account?{" "}
+            <Link 
+              href="/auth/signup" 
+              className="text-blue-500 hover:underline"
+            >
+              Sign Up
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
