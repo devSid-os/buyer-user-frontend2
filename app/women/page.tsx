@@ -6,52 +6,52 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 
-export default function Men() {
+export default function Women() {
 
     const images: { src: string, label?: string }[] = [
-        { src: '/men_images/mens/mens_5.png' },
-        { src: '/men_images/mens/mens_3.png' },
-        { src: '/men_images/mens/mens_1.png' },
-        { src: '/men_images/mens/mens_2.png' },
-        { src: '/men_images/mens/mens_6.png' }
+        { src: '/women_images/womens/5.png' },
+        { src: '/women_images/womens/3.png' },
+        { src: '/women_images/womens/1.png' },
+        { src: '/women_images/womens/2.png' },
+        { src: '/women_images/womens/4.png' }
     ]
 
     const quickPickImages: { src: string, label?: string, url: string }[] = [
-        { src: '/men_images/quick_picks/image_1.png', label: 'Top Wear', url: 'products' },
-        { src: '/men_images/quick_picks/image_2.png', label: 'Bottom Wear', url: 'products' },
-        { src: '/men_images/quick_picks/image_3.png', label: 'Graphic T-Shirts', url: 'products' },
-        { src: '/men_images/quick_picks/image_4.png', label: 'Shirts', url: 'products' },
-        { src: '/men_images/quick_picks/image_5.png', label: 'Hoodies & Jackets', url: 'products' },
-        { src: '/men_images/quick_picks/image_6.png', label: 'Co-ords', url: 'products' },
-        { src: '/men_images/quick_picks/image_7.png', label: 'Athleisure', url: 'products' },
-        { src: '/men_images/quick_picks/image_8.png', label: 'Innerwear', url: 'products' }
+        { src: '/women_images/quick_picks/1.png', label: 'Top Wear', url: 'products' },
+        { src: '/women_images/quick_picks/2.png', label: 'Bottom Wear', url: 'products' },
+        { src: '/women_images/quick_picks/3.png', label: 'Dresses', url: 'products' },
+        { src: '/women_images/quick_picks/4.png', label: 'Athleisure', url: 'products' },
+        { src: '/women_images/quick_picks/5.png', label: 'Ethnic & Fusion Wear', url: 'products' },
+        { src: '/women_images/quick_picks/6.png', label: 'Sleepwear', url: 'products' },
+        { src: '/women_images/quick_picks/7.png', label: 'Innerwear', url: 'products' },
+        { src: '/women_images/quick_picks/8.png', label: 'Co-ords', url: 'products' }
     ]
 
     const trendingImages: { src: string }[] = [
-        { src: '/men_images/trending/1.jpg' },
-        { src: '/men_images/trending/2.jpg' },
-        { src: '/men_images/trending/3.jpg' },
-        { src: '/men_images/trending/4.jpg' },
-        { src: '/men_images/trending/5.jpg' },
-        { src: '/men_images/trending/6.jpg' }
+        { src: '/women_images/trending/1.jpg' },
+        { src: '/women_images/trending/2.jpg' },
+        { src: '/women_images/trending/3.jpg' },
+        { src: '/women_images/trending/4.jpg' },
+        { src: '/women_images/trending/5.jpg' },
+        { src: '/women_images/trending/6.jpg' }
     ]
 
     const upcomingSalesImages: { src: string }[] = [
-        { src: '/men_images/upcoming_sales/1.jpg' },
-        { src: '/men_images/upcoming_sales/2.jpg' },
-        { src: '/men_images/upcoming_sales/3.jpg' },
-        { src: '/men_images/upcoming_sales/4.jpg' },
-        { src: '/men_images/upcoming_sales/5.jpg' },
-        { src: '/men_images/upcoming_sales/6.jpg' }
+        { src: '/women_images/upcoming_sales/1.jpg' },
+        { src: '/women_images/upcoming_sales/2.jpg' },
+        { src: '/women_images/upcoming_sales/3.jpg' },
+        { src: '/women_images/upcoming_sales/4.jpg' },
+        { src: '/women_images/upcoming_sales/5.jpg' },
+        { src: '/women_images/upcoming_sales/6.jpg' }
     ];
 
     const bestSellerImages: { src: string }[] = [
-        { src: '/men_images/best_seller/1.jpg' },
-        { src: '/men_images/best_seller/2.jpg' },
-        { src: '/men_images/best_seller/3.jpg' },
-        { src: '/men_images/best_seller/4.jpg' },
-        { src: '/men_images/best_seller/5.jpg' },
-        { src: '/men_images/best_seller/6.jpg' }
+        { src: '/women_images/best_seller/6.jpg' },
+        { src: '/women_images/best_seller/1.jpg' },
+        { src: '/women_images/best_seller/4.jpg' },
+        { src: '/women_images/best_seller/2.jpg' },
+        { src: '/women_images/best_seller/5.jpg' },
+        { src: '/women_images/best_seller/3.jpg' }
     ];
 
 
@@ -67,7 +67,7 @@ export default function Men() {
         <div className="mt-20 relative bg-white min-h-screen container mx-auto px-[1rem] sm:px-auto">
             <div className="flex justify-center gap-4 mb-4 pt-4">
                 <Link href="/men">
-                    <button type="button" className="bg-[#073453] mt-6 flex flex-row rounded-full relative border bg-gradient-to-l cursor-pointer w-36 h-[40px] text-[12px] sm:text-sm md:text-base md:w-44 md:h-12">
+                    <button type="button" className="mt-6 flex flex-row rounded-full relative border bg-gradient-to-l cursor-pointer w-36 h-[40px] text-[12px] sm:text-sm md:text-base md:w-44 md:h-12 bg-black hover:bg-[#073453]">
                         <img src="/mens.png" alt="Men icon" className="absolute bottom-0 left-2 h-14 md:h-20" />
                         <div className="flex items-center justify-center h-full w-full">
                             <p className="pl-6 text-white font-semibold md:pl-8">Mens</p>
@@ -76,7 +76,7 @@ export default function Men() {
                 </Link>
 
                 <Link href="/women">
-                    <button type="button" className="mt-6 flex flex-row rounded-full relative border bg-gradient-to-l cursor-pointer bg-black hover:bg-[#b27773] w-36 h-[40px] text-[12px] sm:text-sm md:text-base md:w-44 md:h-12">
+                    <button type="button" className="mt-6 flex flex-row rounded-full relative border bg-gradient-to-l cursor-pointer bg-[#b27773] w-36 h-[40px] text-[12px] sm:text-sm md:text-base md:w-44 md:h-12">
                         <img src="/womens.png" alt="Women icon" className="absolute bottom-0 left-3 h-14 md:h-20" />
                         <div className="flex items-center justify-center h-full w-full">
                             <p className="pl-12 text-white font-semibold md:pl-14">Womens</p>
@@ -104,10 +104,10 @@ export default function Men() {
             <div className="w-full mt-4 py-4 text-black">
                 <p className="text-xl md:text-2xl">TOP CATEGORIES</p>
                 <div className="mt-2 grid gap-3 md:grid-cols-2">
-                    <img src="/categories/mens/shirts.png" className="w-full rounded-xl" />
-                    <img src="/categories/mens/tshirts.png" className="w-full rounded-xl" />
-                    <img src="/categories/mens/cargos.png" className="w-full rounded-xl" />
-                    <img src="/categories/mens/denims.png" className="w-full rounded-xl" />
+                    <img src="/categories/womens/1.png" className="w-full rounded-xl" />
+                    <img src="/categories/womens/2.png" className="w-full rounded-xl" />
+                    <img src="/categories/womens/3.png" className="w-full rounded-xl" />
+                    <img src="/categories/womens/4.png" className="w-full rounded-xl" />
                 </div>
             </div>
 
