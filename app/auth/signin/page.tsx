@@ -1,11 +1,11 @@
 // app/auth/signin/page.tsx
 "use client";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
 import Image from "next/image";
 
 const Signin = () => {
-  const { signInWithGoogle } = useAuth();
+  // const { signInWithGoogle } = useAuth();
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -47,7 +47,7 @@ const Signin = () => {
         <div className="text-center text-gray-500 mb-4">continue with</div>
 
         <button
-          onClick={signInWithGoogle}
+          // onClick={signInWitxhGoogle}
           className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition duration-200"
         >
           <Image 
