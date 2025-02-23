@@ -40,7 +40,7 @@ export default function Products({ products }: { products: IProductList[] }) {
   return (
     <div style={{ zIndex: '1' }} className="flex w-full flex-col gap-2 px-2 md:w-[84%] md:p-0 md:pr-1">
       <div className="flex items-center justify-between">
-        <p className="text-[12px] tracking-wider">350 items</p>
+        <p className="text-[12px] tracking-wider">{products.length} items</p>
         <select className="rounded-md bg-gray-100 p-1 py-2 text-sm tracking-wide focus:outline-none">
           <option value={'discount'}>Discount</option>
           <option value={'newest_first'}>What's new</option>

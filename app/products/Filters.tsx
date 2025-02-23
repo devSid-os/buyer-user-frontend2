@@ -5,6 +5,12 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { SlidersHorizontal } from 'lucide-react';
 
+// Add proper interface for filter structure
+interface Filter {
+  name: string;
+  availableFilters: string[];
+}
+
 export default function Filters({
   isSmallScreen,
   filters,
@@ -15,7 +21,7 @@ export default function Filters({
   handleCheckboxChange,
   resetAllFilters,
 }: {
-  filters: any[];
+  filters: Filter[];  // Replace any[] with Filter[]
   expandedFilter: string | null;
   toggleFilter: (filterName: string) => void;
   handleCheckboxChange: (category: string, option: string) => void;
