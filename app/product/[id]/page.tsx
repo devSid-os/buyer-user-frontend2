@@ -1,7 +1,7 @@
 'use client';
 import { notFound, useRouter } from 'next/navigation';
 import Rating from '@mui/material/Rating';
-import { productList } from '@/constants/product';
+import { productList } from '@/constants/productData';
 import { toast } from 'sonner';
 import { useCartStore } from '@/data/cartData';
 import { Button } from '@/components/ui/button';
@@ -103,12 +103,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
           <Button variant="default" size="lg" className="w-full">
             Buy Now
           </Button>
-          <Button 
-            onClick={handleAddToCart} 
-            variant="outline" 
-            size="lg" 
-            className="w-full"
-          >
+          <Button onClick={handleAddToCart} variant="outline" size="lg" className="w-full">
             Add to Cart
           </Button>
         </div>

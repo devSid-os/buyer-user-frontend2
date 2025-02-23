@@ -70,7 +70,7 @@ export default function Men() {
           >
             <img src="/mens.png" alt="Men icon" className="absolute bottom-0 left-2 h-14 md:h-20" />
             <div className="flex h-full w-full items-center justify-center">
-              <p className="pl-6 font-semibold text-white md:pl-8">Mens</p>
+              <p className="pl-6 font-semibold text-white md:pl-8">Men</p>
             </div>
           </button>
         </Link>
@@ -86,7 +86,7 @@ export default function Men() {
               className="absolute bottom-0 left-3 h-14 md:h-20"
             />
             <div className="flex h-full w-full items-center justify-center">
-              <p className="pl-12 font-semibold text-white md:pl-14">Womens</p>
+              <p className="pl-12 font-semibold text-white md:pl-14">Women</p>
             </div>
           </button>
         </Link>

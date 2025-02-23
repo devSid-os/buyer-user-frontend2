@@ -1,5 +1,4 @@
 import React from 'react';
-import { FC } from 'react';
 import Link from 'next/link';
 
 const Hero = () => {
@@ -7,22 +6,26 @@ const Hero = () => {
     <div className="relative w-full bg-white">
       {/* Gender Toggle */}
       <div className="mb-4 flex justify-center gap-2 px-2 pt-4 sm:gap-4 sm:px-4">
-        <button className="flex items-center gap-1 rounded-full bg-black px-3 py-1 text-sm text-white sm:gap-2 sm:px-6 sm:py-2 sm:text-base">
-          <img
-            src="/api/placeholder/32/32"
-            alt="Woman icon"
-            className="h-6 w-6 rounded-full object-cover sm:h-8 sm:w-8"
-          />
-          Women
-        </button>
-        <button className="flex items-center gap-1 rounded-full bg-black px-3 py-1 text-sm text-white sm:gap-2 sm:px-6 sm:py-2 sm:text-base">
-          <img
-            src="/api/placeholder/32/32"
-            alt="Man icon"
-            className="h-6 w-6 rounded-full object-cover sm:h-8 sm:w-8"
-          />
-          Men
-        </button>
+        <Link href="/women">
+          <button className="flex items-center gap-1 rounded-full bg-black px-3 py-1 text-sm text-white sm:gap-2 sm:px-6 sm:py-2 sm:text-base">
+            <img
+              src="/api/placeholder/32/32"
+              alt="Woman icon"
+              className="h-6 w-6 rounded-full object-cover sm:h-8 sm:w-8"
+            />
+            Women
+          </button>
+        </Link>
+        <Link href="/men">
+          <button className="flex items-center gap-1 rounded-full bg-black px-3 py-1 text-sm text-white sm:gap-2 sm:px-6 sm:py-2 sm:text-base">
+            <img
+              src="/api/placeholder/32/32"
+              alt="Man icon"
+              className="h-6 w-6 rounded-full object-cover sm:h-8 sm:w-8"
+            />
+            Men
+          </button>
+        </Link>
       </div>
 
       {/* Hero Banner */}

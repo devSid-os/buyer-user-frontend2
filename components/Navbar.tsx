@@ -13,7 +13,7 @@ export default function Navbar() {
     <nav className="bg-black px-4 py-4">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-white">
+        <Link href="/men" className="text-xl font-bold text-white">
           ClothBuddy
         </Link>
 

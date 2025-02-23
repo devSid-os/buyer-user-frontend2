@@ -4,7 +4,7 @@ import Filters from './Filters';
 import Products from './Products';
 import { SlidersHorizontal } from 'lucide-react';
 import { useMediaQuery } from 'react-responsive';
-import { productList } from '@/constants/product';
+import { productList } from '@/constants/productData';
 
 export default function Men() {
   const productFilters: { name: string; availableFilters: string[] }[] = [

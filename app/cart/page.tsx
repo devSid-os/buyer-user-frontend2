@@ -73,7 +73,7 @@ export default function CartPage() {
                       className="h-8 w-8"
                       onClick={() => handleUpdateQuantity(item.id, item.quantity - 1, item.name)}
                     >
-                      <Minus color='#000' className="h-4 w-4" />
+                      <Minus color="#000" className="h-4 w-4" />
                     </Button>
                     <span className="w-12 text-center text-black">{item.quantity}</span>
                     <Button
@@ -82,7 +82,7 @@ export default function CartPage() {
                       className="h-8 w-8"
                       onClick={() => handleUpdateQuantity(item.id, item.quantity + 1, item.name)}
                     >
-                      <Plus color='#000' className="h-4 w-4" />
+                      <Plus color="#000" className="h-4 w-4" />
                     </Button>
                   </div>
                   <Button
