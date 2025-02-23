@@ -1,13 +1,13 @@
-
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-
 Setting up firebase:<br>
+
 ```bash
 npm install firebase
 ```
+
 Go to .env.local file, if it is not located then create a new .env.local file in your project root:<br>
 
 Add your respective credentials in .env.local file from Firebase website after enabling Google and Email/Password Authentication in the Authentication part.
@@ -19,7 +19,6 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="ADD_YOUR_FIREBASE_STORAGE_BUCKET"<br>
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="ADD_YOUR_FIREBASE_MESSAGING_SENDER_ID"<br>
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="ADD_YOUR_FIREBASE_MESSAGING_SENDER_ID"<br>
 NEXT_PUBLIC_FIREBASE_APP_ID="ADD_YOUR_FIREBASE_APP_ID"
-
 
 First, run the development server:
 
@@ -53,4 +52,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-

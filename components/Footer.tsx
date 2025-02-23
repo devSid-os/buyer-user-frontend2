@@ -2,20 +2,20 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-6 sm:py-8">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <footer className="bg-black py-6 text-white sm:py-8">
+      <div className="container mx-auto max-w-7xl px-4">
         {/* Logo and Newsletter Section */}
         <div className="mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">ClothBuddy</h2>
+          <h2 className="mb-3 text-xl font-bold sm:mb-4 sm:text-2xl">ClothBuddy</h2>
           <div className="w-full sm:max-w-md">
-            <h3 className="text-xs sm:text-sm mb-2">Subscribe to our Newsletter</h3>
-            <div className="flex flex-col sm:flex-row gap-2">
+            <h3 className="mb-2 text-xs sm:text-sm">Subscribe to our Newsletter</h3>
+            <div className="flex flex-col gap-2 sm:flex-row">
               <input
                 type="email"
                 placeholder="Enter your E-mail"
-                className="px-3 sm:px-4 py-2 rounded-md w-full bg-white text-black text-sm"
+                className="w-full rounded-md bg-white px-3 py-2 text-sm text-black sm:px-4"
               />
-              <button className="px-4 sm:px-6 py-2 bg-pink-300 text-black rounded-md hover:bg-pink-400 transition-colors text-sm whitespace-nowrap">
+              <button className="whitespace-nowrap rounded-md bg-pink-300 px-4 py-2 text-sm text-black transition-colors hover:bg-pink-400 sm:px-6">
                 Subscribe
               </button>
             </div>
@@ -23,18 +23,18 @@ const Footer = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8">
           {/* Help Section */}
           <div>
-            <h3 className="font-bold mb-2 sm:mb-4 text-sm sm:text-base">Help</h3>
+            <h3 className="mb-2 text-sm font-bold sm:mb-4 sm:text-base">Help</h3>
             <ul className="space-y-1 sm:space-y-2">
               <li>
-                <a href="#" className="hover:text-gray-300 text-sm sm:text-base transition-colors">
+                <a href="#" className="text-sm transition-colors hover:text-gray-300 sm:text-base">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-gray-300 text-sm sm:text-base transition-colors">
+                <a href="#" className="text-sm transition-colors hover:text-gray-300 sm:text-base">
                   FAQ's
                 </a>
               </li>
@@ -43,10 +43,10 @@ const Footer = () => {
 
           {/* About Us Section */}
           <div>
-            <h3 className="font-bold mb-2 sm:mb-4 text-sm sm:text-base">About Us</h3>
+            <h3 className="mb-2 text-sm font-bold sm:mb-4 sm:text-base">About Us</h3>
             <ul className="space-y-1 sm:space-y-2">
               <li>
-                <a href="#" className="hover:text-gray-300 text-sm sm:text-base transition-colors">
+                <a href="#" className="text-sm transition-colors hover:text-gray-300 sm:text-base">
                   Who are we ?
                 </a>
               </li>
@@ -55,15 +55,15 @@ const Footer = () => {
 
           {/* Policies Section */}
           <div className="col-span-2 sm:col-span-1">
-            <h3 className="font-bold mb-2 sm:mb-4 text-sm sm:text-base">Policies</h3>
+            <h3 className="mb-2 text-sm font-bold sm:mb-4 sm:text-base">Policies</h3>
             <ul className="space-y-1 sm:space-y-2">
               <li>
-                <a href="#" className="hover:text-gray-300 text-sm sm:text-base transition-colors">
+                <a href="#" className="text-sm transition-colors hover:text-gray-300 sm:text-base">
                   Terms and Conditions
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-gray-300 text-sm sm:text-base transition-colors">
+                <a href="#" className="text-sm transition-colors hover:text-gray-300 sm:text-base">
                   Privacy Policy
                 </a>
               </li>

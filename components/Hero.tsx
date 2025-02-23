@@ -1,92 +1,94 @@
 import React from 'react';
-import { FC } from 'react'
+import { FC } from 'react';
 import Link from 'next/link';
 
 const Hero = () => {
   return (
     <div className="relative w-full bg-white">
       {/* Gender Toggle */}
-      <div className="flex justify-center gap-2 sm:gap-4 mb-4 pt-4 px-2 sm:px-4">
-        <button className="flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-1 sm:py-2 bg-black text-white rounded-full text-sm sm:text-base">
-          <img 
+      <div className="mb-4 flex justify-center gap-2 px-2 pt-4 sm:gap-4 sm:px-4">
+        <button className="flex items-center gap-1 rounded-full bg-black px-3 py-1 text-sm text-white sm:gap-2 sm:px-6 sm:py-2 sm:text-base">
+          <img
             src="/api/placeholder/32/32"
             alt="Woman icon"
-            className="w-6 h-6 sm:w-8 sm:h-8 rounded-full object-cover"
+            className="h-6 w-6 rounded-full object-cover sm:h-8 sm:w-8"
           />
           Women
         </button>
-        <button className="flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-1 sm:py-2 bg-black text-white rounded-full text-sm sm:text-base">
-          <img 
+        <button className="flex items-center gap-1 rounded-full bg-black px-3 py-1 text-sm text-white sm:gap-2 sm:px-6 sm:py-2 sm:text-base">
+          <img
             src="/api/placeholder/32/32"
             alt="Man icon"
-            className="w-6 h-6 sm:w-8 sm:h-8 rounded-full object-cover"
+            className="h-6 w-6 rounded-full object-cover sm:h-8 sm:w-8"
           />
           Men
         </button>
       </div>
 
       {/* Hero Banner */}
-      <div className="w-full h-32 sm:h-40 md:h-48 bg-pink-100 rounded-lg mx-auto px-2 sm:px-4 overflow-hidden">
-        <div className="flex items-center justify-between h-full max-w-6xl mx-auto relative">
+      <div className="mx-auto h-32 w-full overflow-hidden rounded-lg bg-pink-100 px-2 sm:h-40 sm:px-4 md:h-48">
+        <div className="relative mx-auto flex h-full max-w-6xl items-center justify-between">
           {/* Fashion Items */}
           <div className="flex gap-2 sm:gap-4">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-blue-300 rounded-lg" />
-            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-orange-400 rounded-lg" />
-            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-purple-400 rounded-lg" />
-            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-pink-400 rounded-lg" />
+            <div className="h-8 w-8 rounded-lg bg-blue-300 sm:h-10 sm:w-10 md:h-12 md:w-12" />
+            <div className="h-8 w-8 rounded-lg bg-orange-400 sm:h-10 sm:w-10 md:h-12 md:w-12" />
+            <div className="h-8 w-8 rounded-lg bg-purple-400 sm:h-10 sm:w-10 md:h-12 md:w-12" />
+            <div className="h-8 w-8 rounded-lg bg-pink-400 sm:h-10 sm:w-10 md:h-12 md:w-12" />
           </div>
-          
+
           {/* Decorative Elements */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-white rounded-full absolute top-1/4 left-1/4" />
-            <div className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 bg-white/50 rounded-full absolute top-1/3 right-1/4" />
-            <div className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-white/30 rounded-full absolute bottom-1/4 left-1/3" />
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute left-1/4 top-1/4 h-2 w-2 rounded-full bg-white sm:h-3 sm:w-3 md:h-4 md:w-4" />
+            <div className="absolute right-1/4 top-1/3 h-3 w-3 rounded-full bg-white/50 sm:h-4 sm:w-4 md:h-6 md:w-6" />
+            <div className="absolute bottom-1/4 left-1/3 h-4 w-4 rounded-full bg-white/30 sm:h-6 sm:w-6 md:h-8 md:w-8" />
           </div>
         </div>
       </div>
 
       {/* Popular Items Section */}
       <div className="mt-6 sm:mt-8">
-        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 px-2 sm:px-4 text-black">MOST POPULAR</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 px-2 sm:px-4">
+        <h2 className="mb-4 px-2 text-xl font-bold text-black sm:mb-6 sm:px-4 sm:text-2xl">
+          MOST POPULAR
+        </h2>
+        <div className="grid grid-cols-2 gap-2 px-2 sm:gap-4 sm:px-4 md:grid-cols-4">
           {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="aspect-square bg-blue-50 rounded-lg overflow-hidden">
+            <div key={item} className="aspect-square overflow-hidden rounded-lg bg-blue-50">
               <img
                 src="/api/placeholder/300/300"
                 alt={`Popular item ${item}`}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
           ))}
         </div>
-        
+
         {/* Offers Section */}
-        <div className="mt-6 sm:mt-8 px-2 sm:px-4">
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-black">OFFERS</h2>
-          <div className="flex justify-start sm:justify-center gap-3 sm:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
+        <div className="mt-6 px-2 sm:mt-8 sm:px-4">
+          <h2 className="mb-4 text-xl font-bold text-black sm:mb-6 sm:text-2xl">OFFERS</h2>
+          <div className="flex snap-x snap-mandatory justify-start gap-3 overflow-x-auto pb-4 sm:justify-center sm:gap-4">
             {/* Buy 1 Get 1 Free Offer */}
-            <div className="min-w-[280px] sm:min-w-[350px] md:min-w-[450px] h-40 sm:h-48 md:h-60 bg-pink-200 rounded-2xl flex flex-col items-center justify-center relative snap-center shrink-0">
-              <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-8">Buy 1 Get 1 Free !</h3>
-              <button className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base">
+            <div className="relative flex h-40 min-w-[280px] shrink-0 snap-center flex-col items-center justify-center rounded-2xl bg-pink-200 sm:h-48 sm:min-w-[350px] md:h-60 md:min-w-[450px]">
+              <h3 className="mb-4 text-lg font-bold sm:mb-8 sm:text-xl">Buy 1 Get 1 Free !</h3>
+              <button className="rounded-md bg-white px-4 py-1.5 text-sm transition-colors hover:bg-gray-100 sm:px-6 sm:py-2 sm:text-base">
                 Shop Now !
               </button>
             </div>
 
             {/* Second Offer */}
-            <div className="min-w-[280px] sm:min-w-[350px] md:min-w-[450px] h-40 sm:h-48 md:h-60 bg-green-200 rounded-2xl flex flex-col items-center justify-center relative snap-center shrink-0">
-              <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-8">Special Discount</h3>
-              <button className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base">
+            <div className="relative flex h-40 min-w-[280px] shrink-0 snap-center flex-col items-center justify-center rounded-2xl bg-green-200 sm:h-48 sm:min-w-[350px] md:h-60 md:min-w-[450px]">
+              <h3 className="mb-4 text-lg font-bold sm:mb-8 sm:text-xl">Special Discount</h3>
+              <button className="rounded-md bg-white px-4 py-1.5 text-sm transition-colors hover:bg-gray-100 sm:px-6 sm:py-2 sm:text-base">
                 Shop Now !
               </button>
             </div>
           </div>
 
           {/* Dots Navigation */}
-          <div className="flex justify-center gap-1.5 sm:gap-2 mt-3 sm:mt-4">
+          <div className="mt-3 flex justify-center gap-1.5 sm:mt-4 sm:gap-2">
             {[...Array(6)].map((_, i) => (
               <div
                 key={i}
-                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${i === 0 ? 'bg-gray-800' : 'bg-gray-300'}`}
+                className={`h-1.5 w-1.5 rounded-full sm:h-2 sm:w-2 ${i === 0 ? 'bg-gray-800' : 'bg-gray-300'}`}
               />
             ))}
           </div>
@@ -96,4 +98,4 @@ const Hero = () => {
   );
 };
 
-export { Hero }
+export { Hero };
