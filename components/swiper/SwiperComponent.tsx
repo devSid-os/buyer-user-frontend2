@@ -71,7 +71,7 @@ export default function SwiperComponent({
                   ? () => handleRedirect(image.url || '', { category: image.label?.toLowerCase() })
                   : undefined
               }
-              className={`${hoverScale && 'swiper-image'} cursor-pointer`}
+              className={`${hoverScale && 'swiper-image'} rounded-sm cursor-pointer`}
               src={image.src}
               alt={`Slide ${index + 1}`}
             />

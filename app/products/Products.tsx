@@ -9,10 +9,12 @@ import { useCartStore } from '@/data/cartData';
 import { toast } from 'sonner';
 import { IProductList } from '@/types/product';
 import Link from 'next/link';
+import { useWishlistStore } from '@/data/wishlistData'; // Import Wishlist Store
 
 export default function Products({ products }: { products: IProductList[] }) {
   const router = useRouter();
   const { addItem } = useCartStore();
+  const { wishlist, toggleWishlist } = useWishlistStore(); // Wishlist store
   const [loadingStates, setLoadingStates] = useState<{ [key: number]: boolean }>({});
 
   const handleAddToCart = async (product: IProductList, e: React.MouseEvent) => {
@@ -49,6 +51,7 @@ export default function Products({ products }: { products: IProductList[] }) {
           <option value={'customer_ratings'}>Customer Ratings</option>
         </select>
       </div>
+
       {/* PRODUCTS LIST */}
       <div className="grid grid-cols-2 gap-3 gap-y-4 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
@@ -66,8 +69,8 @@ export default function Products({ products }: { products: IProductList[] }) {
               >
                 {product.name}
               </p>
-              <button type="button">
-                <Heart size={20} color="gray" />
+              <button type="button" onClick={() => toggleWishlist(product)}>
+                <Heart size={20} color={wishlist.some((item) => item.id === product.id) ? 'red' : 'gray'} />
               </button>
             </div>
             <div className="flex items-center justify-between">
@@ -98,6 +101,7 @@ export default function Products({ products }: { products: IProductList[] }) {
           </div>
         ))}
       </div>
+
       <div className="mt-2 flex w-full justify-center">
         <Pagination
           count={10}

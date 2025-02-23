@@ -166,7 +166,7 @@ export default function ProductDetails({ params }: { params: Promise<{ id: strin
   }
 
   return (
-    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 p-6 md:grid-cols-2">
+    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 mt-32 p-6 md:grid-cols-2 md:mt-20">
       {/* Product Image Section */}
       <div className="flex flex-col items-center">
         <img
@@ -212,7 +212,7 @@ export default function ProductDetails({ params }: { params: Promise<{ id: strin
           <Button size="lg" className="w-full">
             Buy Now
           </Button>
-          <Button onClick={handleAddToCart} variant="outline" size="lg" className="w-full">
+          <Button onClick={handleAddToCart} size="lg" style={{border: "1px solid #1b3a57"}} className="bg-white text-[#1b3a57] w-full hover:text-white">
             Add to Cart
           </Button>
         </div>

@@ -121,7 +121,7 @@ export default function CartPage() {
               Proceed to Checkout
             </Button>
             <Link href="/products">
-              <Button variant="outline" className="mt-4 w-full">
+              <Button style={{border: "1px solid #1b3a57"}} className="bg-white text-[#1b3a57] mt-4 w-full hover:text-white">
                 Continue Shopping
               </Button>
             </Link>
