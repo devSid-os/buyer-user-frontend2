@@ -70,7 +70,7 @@ export default function Women() {
                     <button type="button" className="mt-6 flex flex-row rounded-full relative border bg-gradient-to-l cursor-pointer w-36 h-[40px] text-[12px] sm:text-sm md:text-base md:w-44 md:h-12 bg-black hover:bg-[#073453]">
                         <img src="/mens.png" alt="Men icon" className="absolute bottom-0 left-2 h-14 md:h-20" />
                         <div className="flex items-center justify-center h-full w-full">
-                            <p className="pl-6 text-white font-semibold md:pl-8">Mens</p>
+                            <p className="pl-6 text-white font-semibold md:pl-8">Men</p>
                         </div>
                     </button>
                 </Link>
@@ -79,7 +79,7 @@ export default function Women() {
                     <button type="button" className="mt-6 flex flex-row rounded-full relative border bg-gradient-to-l cursor-pointer bg-[#b27773] w-36 h-[40px] text-[12px] sm:text-sm md:text-base md:w-44 md:h-12">
                         <img src="/womens.png" alt="Women icon" className="absolute bottom-0 left-3 h-14 md:h-20" />
                         <div className="flex items-center justify-center h-full w-full">
-                            <p className="pl-12 text-white font-semibold md:pl-14">Womens</p>
+                            <p className="pl-12 text-white font-semibold md:pl-14">Women</p>
                         </div>
                     </button>
                 </Link>
