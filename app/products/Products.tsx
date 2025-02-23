@@ -1,24 +1,39 @@
 'use client';
-import { Heart, IndianRupee } from 'lucide-react';
+import { Heart, IndianRupee, ShoppingCart } from 'lucide-react';
 import Pagination from '@mui/material/Pagination';
 import Rating from '@mui/material/Rating';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import { useCartStore } from '@/data/cartData';
+import { toast } from 'sonner';
+import { IProductList } from '@/constants/product';
+import Link from 'next/link';
 
-export default function Products({ products }: { products: any[] }) {
+export default function Products({ products }: { products: IProductList[] }) {
   const router = useRouter();
+  const { addItem, totalItems } = useCartStore();
 
-  const redirectToProductDetailPage = (productId: any) => {
-    const urlWithQuery = new URL('/product', window.location.origin);
+  const handleAddToCart = (product: IProductList) => (e: React.MouseEvent) => {
+    e.stopPropagation();
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: 1,
+      src: product.src,
+    });
+    toast.success(`Added ${product.name} to cart`);
+  };
 
-    router.push(urlWithQuery + `/${productId}`);
+  const redirectToProductDetailPage = (productId: number) => {
+    router.push(`/product/${productId}`);
   };
 
   return (
     <div
       style={{ zIndex: '1' }}
       className="flex w-full flex-col gap-2 px-2 md:w-[84%] md:p-0 md:pr-1"
-    >
+    > 
       <div className="flex items-center justify-between">
         <p className="text-[12px] tracking-wider">350 items</p>
         <select className="rounded-md bg-gray-100 p-1 py-2 text-sm tracking-wide focus:outline-none">
@@ -31,12 +46,13 @@ export default function Products({ products }: { products: any[] }) {
       </div>
       {/* PRODUCTS LIST */}
       <div className="grid grid-cols-2 gap-3 gap-y-4 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((product, index: number) => (
-          <div key={index} className="flex flex-col">
+        {products.map((product) => (
+          <div key={product.id} className="flex flex-col">
             <img
               onClick={() => redirectToProductDetailPage(product.id)}
               className="cursor-pointer rounded-md"
               src={product.src}
+              alt={product.name}
             />
             <div className="mt-1 flex items-start justify-between gap-1">
               <p
@@ -50,11 +66,19 @@ export default function Products({ products }: { products: any[] }) {
               </button>
             </div>
             <Rating readOnly name="size-small" defaultValue={product.ratings} size="small" />
-            <p className="flex items-center text-[13px]">
-              <IndianRupee size={13} />
-              {product.price}
-              <Button variant="destructive">Add to Cart</Button>
-            </p>
+            <div className="flex items-center justify-between">
+              <span className="flex items-center text-[13px]">
+                <IndianRupee size={13} />
+                {product.price}
+              </span>
+              <Button 
+                onClick={handleAddToCart(product)} 
+                variant="destructive"
+                size="sm"
+              >
+                Add to Cart
+              </Button>
+            </div>
           </div>
         ))}
       </div>

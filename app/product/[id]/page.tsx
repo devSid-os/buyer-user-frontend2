@@ -1,28 +1,63 @@
 'use client';
-import { notFound } from 'next/navigation';
+import { notFound, useRouter } from 'next/navigation';
 import Rating from '@mui/material/Rating';
-import { Button } from '@mui/material';
 import { productList } from '@/constants/product';
 import { toast } from 'sonner';
+import { useCartStore } from '@/data/cartData';
+import { Button } from '@/components/ui/button';
+import { useEffect, useState } from 'react';
 
-export default async function ProductDetails({ params }: { params: { id: string } }) {
-  const product = productList.find((p) => {
-    console.log('id: ', p.id);
-    return p.id.toString() === params.id;
-  });
-  if (!product) return notFound(); // Show 404 if product not found
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  src: string;
+}
+
+export default function ProductDetails({ params }: { params: { id: string } }) {
+  const [product, setProduct] = useState<Product | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const { addItem } = useCartStore();
+  const router = useRouter();
+
+  useEffect(() => {
+    const foundProduct = productList.find((p) => p.id.toString() === params.id);
+    if (!foundProduct) {
+      router.push('/404');
+      return;
+    }
+    setProduct(foundProduct);
+    setIsLoading(false);
+  }, [params.id, router]);
 
   const handleAddToCart = () => {
-    // Logic to add the product to the cart
-    toast('Product added to cart.');
+    if (product) {
+      addItem({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: 1,
+        src: product.src,
+      });
+      toast.success(`Added ${product.name} to cart`);
+    }
   };
+
+  if (isLoading || !product) {
+    return (
+      <div className="flex h-[70vh] items-center justify-center">
+        <div className="text-lg">Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div
       className="mx-auto grid max-w-6xl grid-cols-1 gap-10 p-6 md:grid-cols-2"
       style={{ color: 'black' }}
     >
-      {/* Product src Section */}
+      {/* Product Image Section */}
       <div className="flex flex-col items-center">
         <img
           src={product.src}
@@ -65,20 +100,14 @@ export default async function ProductDetails({ params }: { params: { id: string 
 
         {/* Action Buttons */}
         <div className="mt-5 flex gap-4">
-          <Button
-            variant="contained"
-            color="secondary"
-            className="w-full py-3 text-lg font-semibold"
-            href="/checkout"
-          >
+          <Button variant="default" size="lg" className="w-full">
             Buy Now
           </Button>
-          <Button
-            onClick={handleAddToCart}
-            variant="outlined"
-            color="primary"
-            className="w-full py-3 text-lg font-semibold"
-            href="/cart"
+          <Button 
+            onClick={handleAddToCart} 
+            variant="outline" 
+            size="lg" 
+            className="w-full"
           >
             Add to Cart
           </Button>

@@ -4,8 +4,11 @@ import Link from 'next/link';
 import { Search, Heart, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useCartStore } from '@/data/cartData';
 
 export default function Navbar() {
+  const { totalItems } = useCartStore();
+
   return (
     <nav className="bg-black px-4 py-4">
       <div className="container mx-auto flex items-center justify-between">
@@ -38,10 +41,15 @@ export default function Navbar() {
             <Heart className="h-5 w-5" />
           </Button>
 
-          {/* Cart */}
+          {/* Cart with Item Count */}
           <Link href="/cart">
-            <Button variant="ghost" size="icon" className="text-white">
+            <Button variant="ghost" size="icon" className="relative text-white">
               <ShoppingCart className="h-5 w-5" />
+              {totalItems > 0 && (
+                <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+                  {totalItems}
+                </span>
+              )}
             </Button>
           </Link>
 

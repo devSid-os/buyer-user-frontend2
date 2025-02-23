@@ -1,4 +1,4 @@
-interface IProductList {
+export interface IProductList {
   id: number;
   src: string;
   name: string;

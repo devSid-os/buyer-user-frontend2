@@ -3,25 +3,22 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import { Toaster } from '@/components/ui/sonner';
-import { AuthProvider } from '@/contexts/AuthContext';
+import { AuthProvider } from '@/context/AuthContext';
+import { CartProvider } from '@/context/CartContext';
 
 const inter = Inter({ subsets: ['latin'] });
-
-export const metadata = {
-  title: 'ClothBuddy',
-  description: 'Your Fashion Destination',
-};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {/* <AuthProvider> */}
-        <Navbar />
-        {children}
-        <Toaster />
-
-        {/* </AuthProvider> */}
+      <body>
+        <AuthProvider>
+          <CartProvider>
+            <Navbar />
+            {children}
+            <Toaster />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );
