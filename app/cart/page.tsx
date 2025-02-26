@@ -21,12 +21,12 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <div className="flex min-h-[70vh] flex-col items-center justify-center space-y-4 text-center">
+      <div className="flex min-h-[70vh] flex-col items-center justify-center space-y-4 px-2 text-center mt-32 md:mt-20">
         <ShoppingBag size={64} className="text-gray-300" />
-        <h1 className="text-2xl font-bold text-gray-900">Your Cart is Empty</h1>
-        <p className="text-gray-600">Looks like you haven't added anything to your cart yet</p>
+        <h1 className="text-xl font-bold text-gray-900 md:text-2xl">Your Cart is Empty</h1>
+        <p className="text-gray-600 text-sm md:text-base">Looks like you haven't added anything to your cart yet</p>
         <Link href="/products">
-          <Button className="mt-4">Continue Shopping</Button>
+          <Button className="mt-4 text-sm md:text-base">Continue Shopping</Button>
         </Link>
       </div>
     );

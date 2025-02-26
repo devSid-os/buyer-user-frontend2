@@ -188,7 +188,7 @@ export default function ProductDetails({ params }: { params: Promise<{ id: strin
 
       {/* Product Details Section */}
       <div>
-        <h1 className="text-3xl font-semibold">{product.name}</h1>
+        <h1 className="text-xl font-semibold text-black md:2xl lg:text-3xl">{product.name}</h1>
         <Rating value={product.rating || 4.5} precision={0.5} readOnly className="mt-2" />
         <p className="mt-2 text-gray-600">{product.description}</p>
 
