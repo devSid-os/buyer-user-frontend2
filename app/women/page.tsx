@@ -7,11 +7,9 @@ import { useRouter } from 'next/navigation';
 
 export default function Women() {
   const images: { src: string; label?: string }[] = [
-    { src: '/women_images/womens/5.png' },
-    { src: '/women_images/womens/3.png' },
-    { src: '/women_images/womens/1.png' },
-    { src: '/women_images/womens/2.png' },
-    { src: '/women_images/womens/4.png' },
+    { src: '/women_images/womens/11.png' },
+    { src: '/women_images/womens/15.png' },
+    { src: '/women_images/womens/16.png' },
   ];
 
   const quickPickImages: { src: string; label?: string; url: string }[] = [
@@ -61,7 +59,7 @@ export default function Women() {
   };
 
   return (
-    <div className="sm:px-auto container relative mx-auto mt-20 min-h-screen bg-white px-[1rem]">
+    <div className="sm:px-auto container relative mx-auto mt-32 min-h-screen bg-white px-[1rem] md:mt-20">
       <div className="mb-4 flex justify-center gap-4 pt-4">
         <Link href="/men">
           <button
@@ -133,11 +131,20 @@ export default function Women() {
 
       <div className="mt-4 py-4 text-black">
         <p className="mb-2 text-xl md:text-2xl">TRENDING</p>
-        <Swiper modules={[Autoplay, Keyboard]} spaceBetween={20} slidesPerView={5}>
+        <Swiper 
+          modules={[Autoplay, Keyboard]} 
+          spaceBetween={20} 
+          breakpoints={{
+            1280: { slidesPerView: 5 },
+            1024: { slidesPerView: 4 },
+            768: { slidesPerView: 3 }, 
+            480: { slidesPerView: 2 }, 
+          }}
+        >
           {trendingImages.map((image, index) => (
             <SwiperSlide key={index}>
               <img
-                className="h-[120px] w-full rounded-md object-cover shadow-md sm:h-[180px] md:h-[240px] lg:h-[300px]"
+                className="h-[200px] w-full rounded-md object-cover shadow-md sm:h-[180px] md:h-[240px] lg:h-[300px]"
                 key={index}
                 src={image.src}
                 alt={`Slide ${index + 1}`}
@@ -157,12 +164,17 @@ export default function Women() {
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
-          slidesPerView={5}
+          breakpoints={{
+            1280: { slidesPerView: 5 },
+            1024: { slidesPerView: 4 },
+            768: { slidesPerView: 3 }, 
+            480: { slidesPerView: 2 }, 
+          }}
         >
           {bestSellerImages.map((image, index) => (
             <SwiperSlide key={index}>
               <img
-                className="h-[120px] w-full rounded-md object-cover shadow-md sm:h-[180px] md:h-[240px] lg:h-[300px]"
+                className="h-[200px] w-full rounded-md object-cover shadow-md sm:h-[180px] md:h-[240px] lg:h-[300px]"
                 key={index}
                 src={image.src}
                 alt={`Slide ${index + 1}`}
@@ -174,11 +186,20 @@ export default function Women() {
 
       <div className="mt-4 py-4 text-black">
         <p className="mb-2 text-xl md:text-2xl">UPCOMING SALES</p>
-        <Swiper modules={[Autoplay, Keyboard]} spaceBetween={20} slidesPerView={5}>
+        <Swiper 
+          modules={[Autoplay, Keyboard]} 
+          spaceBetween={20} 
+          breakpoints={{
+            1280: { slidesPerView: 5 },
+            1024: { slidesPerView: 4 },
+            768: { slidesPerView: 3 }, 
+            480: { slidesPerView: 2 }, 
+          }}
+        >
           {upcomingSalesImages.map((image, index) => (
             <SwiperSlide key={index}>
               <img
-                className="h-[120px] w-full rounded-md object-cover sm:h-[180px] md:h-[240px] lg:h-[300px]"
+                className="h-[200px] w-full rounded-md object-cover sm:h-[180px] md:h-[240px] lg:h-[300px]"
                 key={index}
                 src={image.src}
                 alt={`Slide ${index + 1}`}

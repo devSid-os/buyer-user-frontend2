@@ -2,13 +2,13 @@
 import { useRouter } from 'next/navigation';
 import styles from '../app/products/styles.module.css';
 import Rating from '@mui/material/Rating';
-const Products = ({ products }) => {
+const Products = ({ products }: { products: any }) => {
   const router = useRouter();
   console.log('Products Data:', products);
 
   return (
     <div className={styles.grid}>
-      {products.map((product) => (
+      {products.map((product: any) => (
         <div
           key={product.id}
           className={styles.card}

@@ -7,11 +7,11 @@ import { useRouter } from 'next/navigation';
 
 export default function Men() {
   const images: { src: string; label?: string }[] = [
-    { src: '/men_images/mens/mens_5.png' },
-    { src: '/men_images/mens/mens_3.png' },
-    { src: '/men_images/mens/mens_1.png' },
-    { src: '/men_images/mens/mens_2.png' },
-    { src: '/men_images/mens/mens_6.png' },
+    { src: '/men_images/mens/1.png' },
+    { src: '/men_images/mens/2.png' },
+    { src: '/men_images/mens/3.png' },
+    // { src: '/men_images/mens/mens_2.png' },
+    // { src: '/men_images/mens/mens_6.png' },
   ];
 
   const quickPickImages: { src: string; label?: string; url: string }[] = [
@@ -61,7 +61,7 @@ export default function Men() {
   };
 
   return (
-    <div className="sm:px-auto container relative mx-auto mt-20 min-h-screen bg-white px-[1rem]">
+    <div className="sm:px-auto container relative mx-auto mt-32 min-h-screen bg-white px-[1rem] md:mt-20">
       <div className="mb-4 flex justify-center gap-4 pt-4">
         <Link href="/men">
           <button
@@ -124,20 +124,29 @@ export default function Men() {
       <div className="mt-4 w-full py-4 text-black">
         <p className="text-xl md:text-2xl">TOP CATEGORIES</p>
         <div className="mt-2 grid gap-3 md:grid-cols-2">
-          <img src="/categories/mens/shirts.png" className="w-full rounded-xl" />
-          <img src="/categories/mens/tshirts.png" className="w-full rounded-xl" />
-          <img src="/categories/mens/cargos.png" className="w-full rounded-xl" />
-          <img src="/categories/mens/denims.png" className="w-full rounded-xl" />
+          <img src="/categories/mens/1.png" className="w-full rounded-xl" />
+          <img src="/categories/mens/2.png" className="w-full rounded-xl" />
+          <img src="/categories/mens/3.png" className="w-full rounded-xl" />
+          <img src="/categories/mens/4.png" className="w-full rounded-xl" />
         </div>
       </div>
 
       <div className="mt-4 py-4 text-black">
         <p className="mb-2 text-xl md:text-2xl">TRENDING</p>
-        <Swiper modules={[Autoplay, Keyboard]} spaceBetween={20} slidesPerView={5}>
+        <Swiper 
+          modules={[Autoplay, Keyboard]} 
+          spaceBetween={20} 
+          breakpoints={{
+            1280: { slidesPerView: 5 },
+            1024: { slidesPerView: 4 },
+            768: { slidesPerView: 3 }, 
+            480: { slidesPerView: 2 }, 
+          }}
+        >
           {trendingImages.map((image, index) => (
             <SwiperSlide key={index}>
               <img
-                className="h-[120px] w-full rounded-md object-cover shadow-md sm:h-[180px] md:h-[240px] lg:h-[300px]"
+                className="h-[250px] w-full rounded-md object-cover shadow-md sm:h-[180px] md:h-[240px] lg:h-[300px]"
                 key={index}
                 src={image.src}
                 alt={`Slide ${index + 1}`}
@@ -157,12 +166,17 @@ export default function Men() {
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
-          slidesPerView={5}
+          breakpoints={{
+            1280: { slidesPerView: 5 },
+            1024: { slidesPerView: 4 },
+            768: { slidesPerView: 3 }, 
+            480: { slidesPerView: 2 }, 
+          }}
         >
           {bestSellerImages.map((image, index) => (
             <SwiperSlide key={index}>
               <img
-                className="h-[120px] w-full rounded-md object-cover shadow-md sm:h-[180px] md:h-[240px] lg:h-[300px]"
+                className="h-[250px] w-full rounded-md object-cover shadow-md sm:h-[180px] md:h-[240px] lg:h-[300px]"
                 key={index}
                 src={image.src}
                 alt={`Slide ${index + 1}`}
@@ -174,11 +188,20 @@ export default function Men() {
 
       <div className="mt-4 py-4 text-black">
         <p className="mb-2 text-xl md:text-2xl">UPCOMING SALES</p>
-        <Swiper modules={[Autoplay, Keyboard]} spaceBetween={20} slidesPerView={5}>
+        <Swiper 
+          modules={[Autoplay, Keyboard]} 
+          spaceBetween={20} 
+          breakpoints={{
+            1280: { slidesPerView: 5 },
+            1024: { slidesPerView: 4 },
+            768: { slidesPerView: 3 }, 
+            480: { slidesPerView: 2 }, 
+          }}
+        >
           {upcomingSalesImages.map((image, index) => (
             <SwiperSlide key={index}>
               <img
-                className="h-[120px] w-full rounded-md object-cover sm:h-[180px] md:h-[240px] lg:h-[300px]"
+                className="h-[250px] w-full rounded-md object-cover sm:h-[180px] md:h-[240px] lg:h-[300px]"
                 key={index}
                 src={image.src}
                 alt={`Slide ${index + 1}`}
