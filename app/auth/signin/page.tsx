@@ -7,10 +7,10 @@ import { toast } from 'sonner';
 
 const Signin = () => {
   // const { signInWithGoogle } = useAuth();
-  toast('Sign in Sucessfully');
+  // toast('Sign in Sucessfully');
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center mt-28 bg-gray-100 md:mt-16">
       <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-lg">
         <h2 className="mb-8 text-center text-2xl font-bold text-gray-900">Sign In</h2>
 
@@ -46,7 +46,6 @@ const Signin = () => {
           <div className="mx-4 flex-shrink text-gray-500">Or</div>
           <div className="flex-grow border-t border-gray-300"></div>
         </div>
-        <div className="mb-4 text-center text-gray-500">continue with</div>
 
         <button
           // onClick={signInWitxhGoogle}

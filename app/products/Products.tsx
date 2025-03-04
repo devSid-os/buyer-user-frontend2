@@ -1,130 +1,116 @@
 'use client';
-import { Heart, IndianRupee, Loader2 } from 'lucide-react';
+import { Heart, ShoppingBag } from 'lucide-react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { useState } from 'react';
-import Pagination from '@mui/material/Pagination';
-import Rating from '@mui/material/Rating';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/data/cartData';
 import { toast } from 'sonner';
 import { IProductList } from '@/types/product';
-import Link from 'next/link';
 import { useWishlistStore } from '@/data/wishlistData'; // Import Wishlist Store
+import { productList } from '@/constants/productData';
 
 export default function Products({ products }: { products: IProductList[] }) {
   const router = useRouter();
-  const { addItem } = useCartStore();
+  const { addItem, isItemInCart, removeItem } = useCartStore();
   const { wishlist, toggleWishlist } = useWishlistStore(); // Wishlist store
+
   const [loadingStates, setLoadingStates] = useState<{ [key: number]: boolean }>({});
 
   const handleAddToCart = async (product: IProductList, e: React.MouseEvent) => {
     e.stopPropagation();
-    try {
-      setLoadingStates(prev => ({ ...prev, [product.id]: true }));
-      await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
-      addItem({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        quantity: 1,
-        src: product.src,
-      });
-      toast.success(`Added ${product.name} to cart`);
-    } finally {
-      setLoadingStates(prev => ({ ...prev, [product.id]: false }));
+    if (!isItemInCart(product.id)) {
+      try {
+        setLoadingStates(prev => ({ ...prev, [product.id]: true }));
+        await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+        addItem({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          quantity: 1,
+          src: product.src,
+        });
+        toast.success(`Added ${product.name} to cart`);
+      } finally {
+        setLoadingStates(prev => ({ ...prev, [product.id]: false }));
+      }
+    }
+    else {
+      removeItem(product.id);
+      toast.success(`Removed ${product.name} from cart`);
     }
   };
+
+  const isInWishlist = (item: any) => {
+    return wishlist.some((wItem) => wItem.id === item.id);
+  }
 
   const redirectToProductDetailPage = (productId: number) => {
     router.push(`/product/${productId}`);
   };
 
   return (
-    <div style={{ zIndex: '1' }} className="flex w-full flex-col gap-2 px-2 md:w-[84%] md:p-0 md:pr-1">
-      <div className="flex items-center justify-between">
-        <p className="text-[12px] tracking-wider">{products.length} items</p>
-        <select className="rounded-md bg-gray-100 p-1 py-2 text-sm tracking-wide focus:outline-none">
-          <option value={'discount'}>Discount</option>
-          <option value={'newest_first'}>What's new</option>
-          <option value={'price_low_high'}>Price-low to high</option>
-          <option value={'price_high_low'}>Price-high to low</option>
-          <option value={'customer_ratings'}>Customer Ratings</option>
-        </select>
-      </div>
+    <div style={{ zIndex: '1' }} className="flex w-full flex-col gap-2 px-2 md:p-0 md:pr-1">
 
       {/* PRODUCTS LIST */}
-      <div className="grid grid-cols-2 gap-3 gap-y-4 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((product) => (
-          <div key={product.id} className="flex flex-col">
-            <img
-              onClick={() => redirectToProductDetailPage(product.id)}
-              className="cursor-pointer rounded-md"
-              src={product.src}
-              alt={product.name}
-            />
-            <div className="mt-1 flex items-start justify-between gap-1">
-              <p
-                onClick={() => redirectToProductDetailPage(product.id)}
-                className="cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap text-[13px] tracking-wide"
-              >
-                {product.name}
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {productList.map((item) => (
+          <div onClick={() => redirectToProductDetailPage(item.id)} className="overflow-hidden cursor-pointer flex flex-col items-start group justify-center gap-1" key={item.id}>
+            {/* IMAGE CONTAINER */}
+            <div className="relative w-74 h-74 object-contain overflow-hidden rounded-md">
+              <img
+                src={item.src}
+                className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+              />
+
+              <div className="absolute bottom-0 left-0 w-full max-h-0 opacity-0 bg-white transition-all duration-500 ease-in-out group-hover:max-h-[80px] group-hover:opacity-100 py-2 flex flex-col items-center justify-center gap-2">
+                {!isInWishlist(item) ? <button onClick={(e) => { toggleWishlist(item); e.stopPropagation(); }} className={`flex p-1 px-2 rounded-md items-center gap-1 text-sm hover:bg-red-400 hover:text-white`} type="button">
+                  <Heart size={16} />ADD TO WISHLIST
+                </button> : <button onClick={(e) => { toggleWishlist(item); e.stopPropagation(); }} className={`flex p-1 px-2 rounded-md items-center gap-1 text-sm bg-red-400 text-white`} type="button">
+                  <Heart size={16} />REMOVE FROM WISHLIST
+                </button>}
+              </div>
+            </div>
+
+            {/* PRODUCT INFO */}
+            <div className="w-full">
+              <p className="font-bold tracking-wide text-[#083554] text-sm text-ellipsis overflow-hidden whitespace-nowrap">
+                {item.name.toUpperCase()}
               </p>
-              <button type="button" onClick={() => toggleWishlist(product)}>
-                <Heart size={20} color={wishlist.some((item) => item.id === product.id) ? 'red' : 'gray'} />
-              </button>
-            </div>
-            <div className="flex items-center justify-between">
-              <Rating readOnly name="size-small" defaultValue={product.ratings} size="small" />
-              {product.ratings}
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="flex items-center text-[13px]">
-                <IndianRupee size={13} />
-                {product.price}
-              </span>
-              <Button 
-                onClick={(e) => handleAddToCart(product, e)} 
-                variant="destructive" 
-                size="sm"
-                disabled={loadingStates[product.id]}
-              >
-                {loadingStates[product.id] ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Adding...
-                  </>
-                ) : (
-                  'Add to Cart'
-                )}
-              </Button>
+              <div className='flex justify-between gap-2'>
+                <div>
+                  <p className="text-gray-500 font-[500] text-[13px]">SELLER: G5 MENS WEAR</p>
+                  <div className="flex gap-1 items-center">
+                    <p className="text-[13px] tracking-wide font-semibold">Rs.{item.price}</p>
+                    <p className="text-[13px] font-[500] line-through text-gray-500">Rs.1099</p>
+                    <p className="tracking-wider text-red-600 text-[11px] font-semibold">(25% OFF)</p>
+                  </div>
+                </div>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <button onClick={(e) => handleAddToCart(item, e)}
+                        type="button" style={{ transition: '.1s color ease-in-out' }} className={`${isItemInCart(item.id) ? "text-[#083554]" : "hover:text-[#083554]"}`}>
+                        <ShoppingBag strokeWidth={1.8} size={20} />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{isItemInCart(item.id) ? "Add to Cart" : "Remove from Cart"}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-2 flex w-full justify-center">
-        <Pagination
-          count={10}
-          variant="outlined"
-          shape="rounded"
-          sx={{
-            '& .MuiPaginationItem-root': {
-              color: 'black',
-              '&:hover': {
-                backgroundColor: 'black',
-                color: 'white',
-              },
-            },
-            '& .MuiPaginationItem-ellipsis': {
-              color: 'black',
-            },
-            '& .Mui-selected': {
-              backgroundColor: 'black!important',
-              color: 'white',
-            },
-          }}
-        />
-      </div>
+
+
     </div>
   );
 }
