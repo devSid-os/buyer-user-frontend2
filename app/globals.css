@@ -86,7 +86,15 @@ input[type='search']::-webkit-search-results-decoration {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.font-assistant {
+  font-family: "Assistant", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
 }

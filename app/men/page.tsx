@@ -61,7 +61,7 @@ export default function Men() {
   };
 
   return (
-    <div className="sm:px-auto container relative mx-auto mt-32 min-h-screen bg-white px-[1rem] md:mt-20">
+    <div className="sm:px-auto container relative mx-auto mt-28 min-h-screen bg-white px-[1rem] md:mt-20">
       <div className="mb-4 flex justify-center gap-4 pt-4">
         <Link href="/men">
           <button

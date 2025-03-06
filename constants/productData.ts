@@ -10,14 +10,6 @@ export const productList: IProductLists = [
     description: 'SOLID COTTON SHIRT',
   },
   {
-    id: 2,
-    src: '/products/shirts/s2.jpg',
-    price: 688,
-    ratings: 4.5,
-    name: 'BEIGE SOLID CASA LINEN SHIRT',
-    description: 'SOLID COTTON SHIRT',
-  },
-  {
     id: 3,
     src: '/products/shirts/s3.jpg',
     price: 687,
@@ -26,11 +18,11 @@ export const productList: IProductLists = [
     description: 'SOLID COTTON SHIRT',
   },
   {
-    id: 4,
-    src: '/products/shirts/s4.jpg',
-    price: 687,
-    ratings: 3,
-    name: 'TERACOTTA BROWN SOLID COTTON SHIRT',
+    id: 2,
+    src: '/products/shirts/s2.jpg',
+    price: 688,
+    ratings: 4.5,
+    name: 'BEIGE SOLID CASA LINEN SHIRT',
     description: 'SOLID COTTON SHIRT',
   },
   {
@@ -39,6 +31,14 @@ export const productList: IProductLists = [
     price: 725,
     ratings: 2.5,
     name: 'SELF TEXTURED WAFFLE KNIT HALF SLEEVES SHIRT WITH CUBAN COLLAR',
+    description: 'SOLID COTTON SHIRT',
+  },
+  {
+    id: 4,
+    src: '/products/shirts/s4.jpg',
+    price: 687,
+    ratings: 3,
+    name: 'TERACOTTA BROWN SOLID COTTON SHIRT',
     description: 'SOLID COTTON SHIRT',
   },
   {

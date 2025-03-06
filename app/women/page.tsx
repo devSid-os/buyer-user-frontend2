@@ -59,7 +59,7 @@ export default function Women() {
   };
 
   return (
-    <div className="sm:px-auto container relative mx-auto mt-32 min-h-screen bg-white px-[1rem] md:mt-20">
+    <div className="sm:px-auto container relative mx-auto mt-28 min-h-screen bg-white px-[1rem] md:mt-20">
       <div className="mb-4 flex justify-center gap-4 pt-4">
         <Link href="/men">
           <button
@@ -68,7 +68,7 @@ export default function Women() {
           >
             <img src="/mens.png" alt="Men icon" className="absolute bottom-0 left-2 h-14 md:h-20" />
             <div className="flex h-full w-full items-center justify-center">
-              <p className="pl-6 font-semibold text-white md:pl-8">Mens</p>
+              <p className="pl-6 font-semibold text-white md:pl-8">Men</p>
             </div>
           </button>
         </Link>
@@ -84,7 +84,7 @@ export default function Women() {
               className="absolute bottom-0 left-3 h-14 md:h-20"
             />
             <div className="flex h-full w-full items-center justify-center">
-              <p className="pl-12 font-semibold text-white md:pl-14">Womens</p>
+              <p className="pl-12 font-semibold text-white md:pl-14">Women</p>
             </div>
           </button>
         </Link>
