@@ -5,6 +5,9 @@ import Navbar from '@/components/Navbar';
 import { Toaster } from '@/components/ui/sonner';
 import { AuthProvider } from '@/context/AuthContext';
 import { CartProvider } from '@/context/CartContext';
+import UserAccount from './userAccount/page';
+import AddressPage from './addressPage/page';
+import ProfilePage from './userProfile/page';
 
 const inter = Inter({ subsets: ['latin'] });
 
