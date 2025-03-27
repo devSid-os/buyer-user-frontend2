@@ -1,4 +1,5 @@
 'use client';
+import { usePathname } from "next/navigation";
 import { MapPinOff, ShoppingBag, Heart, Search, MapPin, LayoutGrid, User } from 'lucide-react';
 import {
   Dialog,
@@ -50,6 +51,8 @@ export default function Navbar() {
       </p>
     )
   }
+  const pathname = usePathname();
+
 
   return (
     <nav className="fixed top-0 left-0 z-[999] w-full bg-white px-4 py-2 shadow-md md:py-1 md:px-6">
@@ -61,7 +64,7 @@ export default function Navbar() {
         </Link>
 
         {/* Search & Location */}
-        <div className="flex flex-1 items-center gap-6">
+        {pathname !== '/auth/signin' && <div className="flex flex-1 items-center gap-6">
           {/* Location */}
           <div className="hidden items-center gap-1 md:flex">
             <MapPin size={22} className="text-black" />
@@ -128,12 +131,12 @@ export default function Navbar() {
               <Search className="w-5 h-5 text-white" />
             </button>
           </div>
-        </div>
+        </div>}
 
         {/* Icons */}
         <div className="flex items-stretch gap-6 lg:gap-8">
           <div className="relative group">
-            <button
+            {pathname !== '/auth/signin' && <button
               onMouseEnter={toggleMegaMenu}
               onMouseLeave={toggleMegaMenu}
               className="hidden select-none h-full md:flex items-center gap-1 text-black"
@@ -141,7 +144,7 @@ export default function Navbar() {
             >
               <LayoutGrid size={18} />
               <p className="text-sm tracking-wide md:text-base">Categories</p>
-            </button>
+            </button>}
 
             {/* Dropdown Menu */}
             <div
